@@ -43,10 +43,16 @@ Route::get('/deconnexion', [\App\Http\Controllers\LoginController::class, 'Decon
 // });
 
 
-
+Route::get('/contact', function(){
+    return view(view:'contact')->name('contact');
+});
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 
 Route::post('/temoignage', [TemoignageController::class, 'creer'])->name('temoignage');
 Route::get('/temoignage', [TemoignageController::class, 'montrer']);
+
+Route::delete('/temoignage/{temoignage}', [TemoignageController::class, 'supprimer'])->name('destroy');
+Route::get('/temoignage/{temoignage}', [TemoignageController::class, 'edit'])->name('edition');
+Route::put('/temoignage/{temoignage}/edit', [TemoignageController::class, 'modifier'])->name('modifier');

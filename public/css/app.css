@@ -1,0 +1,50 @@
+.bleu{
+    color: rgb(18, 26, 122);
+}
+.bgbleu{
+    background-color: rgb(18, 26, 122);
+}
+.bgbleua{
+    background-color: rgba(18, 26, 122, 0.6);
+}
+.bgjaune{
+    background-color: rgba(252, 237, 21, 0.6);
+}
+.j{
+    background-color: white;
+    border: 1px solid rgb(18, 26, 122);
+}
+.bgrouge{
+    background-color: rgba(175, 13, 31, 0.6);
+}
+.bgr{
+    background-color: rgb(175, 13, 31);
+}
+.vote{
+    background-image: url("../images/vote.png");
+}
+.imj{
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: auto;
+    max-height: auto;
+}
+.arme{
+    background-image: url("../images/armée.png");
+}
+.loua{
+    background-image: url("../images/lois2.png");
+}
+.lien{
+    text-decoration: none;
+}
+.blackbtn{
+    border: solid 1px;
+    background-color: rgba(0, 0, 0, 0.38);
+}
+.bgbleua:hover{
+    background-color: rgb(18, 26, 122);
+}
+hr {
+    box-shadow: 0 0 60px 60px rgba(0, 0, 0, 0.5);
+}

@@ -8,23 +8,20 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactUsFormController extends Controller
 {
-    // Create Contact Form
     public function createForm(Request $request)
     {
         return view('contact');
     }
-    // Store Contact Form data
     public function ContactUsForm(Request $request)
     {
-        // Form validation
         $this->validate($request, [
             'email' => 'required|email',
             'sujet' => 'required',
             'message' => 'required'
         ]);
-        //  Store data in database
+        //  On stock dans la bdd les données
         Contact::create($request->all());
-        //  Send mail to admin
+        //  On envoie le mail à l'admin
         Mail::send('mail', array(
             'email' => $request->get('email'),
             'sujet' => $request->get('sujet'),

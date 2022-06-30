@@ -21,23 +21,21 @@ class TemoignageController extends Controller
     }
     public function montrer()
     {
-        $user = User::all();
         $temoignages = Temoignage::latest()->get();
-        $relation = Temoignage::whereBelongsTo($user)->get();
-        echo $relation;
         return view("temoignage", compact("temoignages"));
-        
-        // $temoignages = Temoignage::whereBelongsTo($user)->latest()->get();
-        // echo $temoignages;
-        // return view("temoignage", compact("temoignages"));
+    }
+    public function edit($temoignage) {
+        return view("modifier", compact("temoignage"));
     }
     public function modifier(Request $request, Temoignage $temoignage)
     {
         $temoignage->update(['text' => $request->text]);
+        return redirect(route("temoignage"));
     }
     public function supprimer(Temoignage $temoignage)
     {
         $temoignage->delete();
-        return redirect(route('temoignage'));
+        return redirect('/temoignage');
     }
+
 }

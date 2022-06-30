@@ -3,99 +3,91 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Laravel</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <title></title>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
-{{-- 
-        @foreach ($posts as $post)
-			<tr>
-				<td>
-					<!-- Lien pour afficher un Post : "posts.show" -->
-					<a href="{{ route('posts.show', $post) }}" title="Lire l'article" >{{ $post->title }}</a>
-				</td>
-				<td>
-					<!-- Lien pour modifier un Post : "posts.edit" -->
-					<a href="{{ route('posts.edit', $post) }}" title="Modifier l'article" >Modifier</a>
-				</td>
-				<td>
-					<!-- Formulaire pour supprimer un Post : "posts.destroy" -->
-					<form method="POST" action="{{ route('posts.destroy', $post) }}" >
-						<!-- CSRF token -->
-						@csrf
-						<!-- <input type="hidden" name="_method" value="DELETE"> -->
-						@method("DELETE")
-						<input type="submit" value="x Supprimer" >
-					</form>
-				</td>
-			</tr>
-			@endforeach --}}
-
-
-        
+        <header class="">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand logo" href="{{ url('/') }}"><img src="{{URL::asset('images\drapeau-republique-inénizienne.png')}}" class="d-flex align-items-start" width="130" height="65" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end align-self-center" id="navbarNavAltMarkup">
+                        <div class="navbar-nav fs-5 mx-4">
+                            <a class="bleu lien bleu mx-3" href="">Règles citoyennes</a>
+                            <a class="bleu lien bleu mx-3" href="{{url('temoignage')}}">Témoignages</a>
+                            <a class="bleu lien bleu mx-3" href="{{url('contact')}}">Contact</a>
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/deconnexion') }}" class="bleu lien bleu ms-3">Déconnexion</a>
+                                @else
+                                    <a href="{{ route('inscription') }}" class="bleu lien bleu mx-3">Inscription</a>
+                                    <a href="{{ route('login') }}" class="bleu lien bleu ms-3">Connexion</a>
+                                @endauth
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <hr class="mx-5 bleu shadow">
+        </header>
         <div class="container">
             @foreach($temoignages as $temoignage)
             <div class="row my-5 border">
                 <div class="col-sm-10">
-                    {{-- @while ($temoignage->users_id = user()->get()->id) --}}
-                    <p class="fw-bold fs-4">{{
-                        $temoignage->users_id)
-                        // User::find($temoignage->users_id)->nom
-                    }}</p>
-                    {{-- @endwhile --}}
+                    <p class=" fs-4">
+                        {{$temoignage->Seller->nom}} {{$temoignage->Seller->prenom}}
+                    </p>
                     <img src="https://www.handiclubnimois.fr/wp-content/uploads/2020/10/blank-profile-picture-973460_1280.png" class="pb-4" alt="" width="80px">
                 </div>
-                <div class="col-sm-12">
-                    <p>{{$temoignage->text}}</p>
+                <div class="col-sm-12 mb-3">
+                    <p class="">{{$temoignage->text}}</p>
                 </div>
                 @if (Route::has('login'))
-                
                     @auth
                     @if ($temoignage->users_id === Auth::user()->id )
-                        <input type="button" value="">
-                        <input type="button" value="">
+                        <form action="{{ url('temoignage', $temoignage )}}">
+                            <input type="submit" value="Modifier" class="j fs-5 bleu lien py-1 px-5 my-2">
+                        </form>
+                        <form method="POST" action="{{ route('destroy', $temoignage) }}">
+                            @csrf
+                            @method("DELETE")
+                            <input type="hidden" name="destroy" value="DELETE">
+                            <input type="submit" value="Supprimer" class="bgr fs-5 text-white lien py-1 px-5 border-0 my-2">
+                        </form>
                     @endif
                     @if (Auth::user()->email == "admin@admin.com")
                         <input type="button" value="">
-                        <input type="button" value="">
+                        <form method="POST" action="{{ route('destroy', $temoignage) }}">
+                            @csrf
+                            @method("DELETE")
+                            <input type="hidden" name="destroy" value="DELETE">
+                            <input type="submit" value="Supprimer" class="">
+                        </form>
                     @endif
                     @endauth
                 @endif
             </div>
             @endforeach
             @if (Route::has('login'))
+            @auth
             <form action="{{ route("temoignage") }}" method="POST" class="mb-3">
                 @csrf
                 <label for="exampleFormControlTextarea1" class="form-label">Ajoutez une reponse</label>
                 <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <input class="" type="submit" name="creer">
+                <input class="bgbleu fs-5 text-white lien py-1 px-5 border-0 my-3" type="submit" name="creer">
             </form>
+            @endauth
             @endif
         </div>
-
-
-            {{-- <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data" >
-                <!-- Le token CSRF -->
-                @csrf
-                <p>
-                    <label for="title" >Titre</label><br/>
-                    <input type="text" name="title" value="{{ old('title') }}"  id="title" placeholder="Le titre du post" >
-                    <!-- Le message d'erreur pour "title" -->
-                    @error("title")
-                    <div>{{ $message }}</div>
-                    @enderror
-                </p>
-                <p>
-                    <label for="content" >Contenu</label><br/>
-                    <textarea name="content" id="content" lang="fr" rows="10" cols="50" placeholder="Le contenu du post" >{{ old('content') }}</textarea>
-                    <!-- Le message d'erreur pour "content" -->
-                    @error("content")
-                    <div>{{ $message }}</div>
-                    @enderror
-                </p>
-                <input type="submit" name="valider" value="Valider" >
-            </form>
-        </div> --}}
+        <script src="{{ asset('js/yit.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
