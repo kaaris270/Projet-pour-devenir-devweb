@@ -18,7 +18,7 @@
                     @method('PUT')
                     <label for="exampleFormControlTextarea" class="form-label"></label>
                     <textarea class="form-control" name="text" id="exampleFormControlTextarea" cols="30" rows="10">{{ old('text') }}</textarea>
-                    <input class="" type="submit" name="modifier">
+                    <input class="bgbleu fs-5 text-white lien py-1 px-5 border-0 my-3" value="Confirmer" type="submit" name="modifier">
                 </form>
             </div>
         </div>
