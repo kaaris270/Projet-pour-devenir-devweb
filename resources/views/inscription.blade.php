@@ -34,14 +34,11 @@
         <div class="container">
             <h3 class="bleu">Inscrivez-vous</h3>
             <p class="text-muted">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Pariatur at est sit nobis. Impedit voluptate quam enim 
-                obcaecati aut praesentium est provident, quos eaque minus 
-                id accusantium rem magni neque?
+                Créer un compte en complétant les champs suivants afin de pouvoir utiliser l'ensemble des fonctionnalités que propose le site.
             </p>
         </div>
         <div class="container d-flex justify-content-center">
-            <form class="col-5 my-3" action="{{ route("inscription") }}" method="POST">
+            <form class="col-sm-5 col-11 mb-4 mt-5" action="{{ route("inscription") }}" method="POST">
                 @csrf
                 <label class="form-label text-muted mt-4" for="nom">Nom</label>
                 <input id="nom" class="form-control" type="text" name="nom" placeholder="">
@@ -51,7 +48,7 @@
                 <input id="mail" class="form-control" type="email" name="email" placeholder="">
                 <label class="form-label text-muted mt-4" for="mdp">Mot de passe</label>
                 <input id="mdp" class="form-control mb-4" type="password" name="password" placeholder="">
-                <a class="" href="{{ route('login') }}">Inscrivez vous si vous n’avez pas de compte</a> <br>
+                <a class="" href="{{ route('login') }}">Connectez-vous si vous avez un compte</a> <br>
                 <input type="submit" name="create" placeholder="" value="Inscription" class="bgbleu fs-5 text-white lien py-1 px-4 border-0 my-3">
             </form>
         </div>

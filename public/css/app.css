@@ -20,6 +20,9 @@
 .bgr{
     background-color: rgb(175, 13, 31);
 }
+.rouj{
+    color: rgb(175, 13, 31);
+}
 .vote{
     background-image: url("../images/vote.png");
 }

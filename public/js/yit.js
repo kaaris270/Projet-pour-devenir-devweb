@@ -11,16 +11,20 @@
 // 	.then(response => console.log(response))
 // 	.catch(err => console.error(err));
 
-// validate();
-// function validate() {
-//     if (document.myForm.email.value == "" || document.myForm.password.value == "") {
-//         document.getElementById("recu").disabled = true;
-//         serpankisemorlakeu();
-//     }
-//     else{
-//         document.getElementById("recu").disabled = false;
-//     }
-// }
-// function serpankisemorlakeu() {
-//     setInterval(validate(), 1000);
-// }
+validate();
+function validate() {
+    if (document.myForm.email.value == "") {
+        document.querySelector('.a').innerHTML = "Veuillez fournir votre email !";
+        validate();
+    }
+    if (document.myForm.email.value !== "") {
+        document.querySelector('.a').innerHTML = "";
+    }
+    if (document.myForm.password.value == "") {
+        document.querySelector('.b').innerHTML = "Veuillez fournir votre mots de passe !";
+        validate();
+    }
+    if (document.myForm.password.value !== "") {
+        document.querySelector('.b').innerHTML = "";
+    }
+}

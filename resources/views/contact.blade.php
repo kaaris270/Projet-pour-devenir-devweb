@@ -40,15 +40,10 @@
     </header>
     <main>
         <div class="container mt-5">
-            <h3 class="bleu">Actualités</h3>
+            <h3 class="bleu">Contactez-nous</h3>
             <p class="text-muted">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur at est sit nobis. Impedit voluptate quam enim obcaecati aut praesentium est provident, quos eaque minus id accusantium rem magni neque?
+                Vous pouvez nous faire part de vos questions ou de vos remarques. Le champ « Message » est mis à disposition pour détailler votre demande, mais il ne doit pas contenir de données sensibles à caractère personnel.
             </p>
-            @if(Session::has('success'))
-                <div class="alert alert-success">
-                    {{Session::get('Message envoyé avec succes')}}
-                </div>
-            @endif
             <form class="col-12 col-sm-8" method="post" action="{{ route('contact.store') }}">
                 @csrf
                 <div class="form-group">
@@ -63,8 +58,7 @@
                     <label>Message</label>
                     <textarea class="form-control mb-3" name="message" id="message" rows="4"></textarea>
                 </div>
-                
-                <p class="text-muted"><input type="checkbox" name="" id="">    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur eos quis, aliquid dolorem magni maxime fuga repellendus molestias! Adipisci facilis quibusdam voluptatum veritatis rerum modi officiis magnam debitis natus iste.</p>
+                <p class="text-muted"><input type="checkbox" name="" id="">    En soumettant ce formulaire, j’accepte que les informations saisies soient utilisées pour permettre de me recontacter, répondre à ma demande.</p>
                 <input type="submit" name="send" value="Envoyer" class="bgbleu fs-5 text-white lien py-1 px-4 border-0 my-3">
             </form>
             <p class="py-5 text-muted">

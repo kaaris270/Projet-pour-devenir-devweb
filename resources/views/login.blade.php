@@ -41,17 +41,19 @@
             </p>
         </div>
         <div class="container d-flex justify-content-center">
-            <form action="{{ route("login") }}" method="POST" name = "myForm" class="col-sm-5 col-11 mb-4 mt-5">
+            <form action="{{ route("login") }}" method="POST" onsubmit = "return(validate());" name = "myForm" class="col-sm-5 col-11 mb-4 mt-5">
                 @csrf
                 <label class="form-label text-muted mt-4" for="mail">Adresse email</label>
                 <input type="email" name="email" id="mail" placeholder="" class="form-control">
+                <p class="a rouj"></p>
                 <label class="form-label text-muted mt-4" for="mdp">Mot de passe</label>
                 <input type="password" name="password" id="mdp" placeholder="" class="form-control mb-4">
-                <a class="d-flex justify-content-center" href="{{ route('inscription') }}">Connectez-vous si vous avez un compte</a>
-                    <div class="d-flex justify-content-center">
-                        <input type="submit" name="Login" value="Connexion" id="recu" class="bgbleu fs-5 text-white lien py-1 px-4 border-0 my-3">
-                    </div>
-                </form>
+                <p class="b rouj"></p>
+                <a class="d-flex justify-content-center" href="{{ route('inscription') }}">Inscrivez vous si vous n’avez pas de compte</a>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" name="Login" value="Connexion" id="recu" class="bgbleu fs-5 text-white lien py-1 px-4 border-0 my-3">
+                </div>
+            </form>
         </div>
     </main>
     <footer>

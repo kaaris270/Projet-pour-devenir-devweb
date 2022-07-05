@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,21 +43,20 @@
             <div class="container animate__fadeInDown animate__delay-5s animate__slow">
                 <h3 class="bleu">Actualités</h3>
                 <p class="text-muted">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Pariatur at est sit nobis. Impedit voluptate quam enim 
-                    obcaecati aut praesentium est provident, quos eaque minus 
-                    id accusantium rem magni neque?
+                    Ici, vous trouverez l'actualité récente du pays afin de 
+                    participer aux mieux à l'évolution du pays.
                 </p>
                 <section class="vote imj">
                     <div class="py-5"></div>
                     <div class="py-5"></div>
                     <a class="lien" href="{{url('')}}">
-                    </a>
-                    <div class="d-flex align-self-end bgbleua mt-5 py-4 my-3">
+                        <div class="d-flex align-self-end bgbleua mt-5 py-4 my-3">
                             <h3 class="d-flex align-items-center text-white mx-4">
                                 Suivre cette actualité
                             </h3>
-                    </div>
+                        </div>
+                    </a>
+                    
                 </section>
                 <section class="imj arme">
                     <a class="lien" href="{{url('/armee')}}">
@@ -69,24 +68,23 @@
                     </a>
                 </section>
                 <section class="imj loua">
-                    <div class="bgrouge d-flex py-4 my-3 ">
-                        <a class="lien" href="">
+                    <a href="" class="lien">
+                        <div class="bgrouge d-flex py-4 my-3 ">
                             <h3 class="text-white align-items-center mx-4">
                                 S'informer sur l'histoire du pays
                             </h3>
-                        </a>
-                        
-                    </div>
+                        </div>
+                    </a>
                 </section>
                 
                 <div class="row my-5">
                     <div class="col-sm-6 col-11">
                         <h3 class="bleu">Les lois</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Ut exercitationem voluptatem, repudiandae commodi, 
-                            numquam quo cupiditate asperiores praesentium 
-                            necessitatibus odit optio nostrum repellat ratione. 
-                            Veritatis harum corrupti id quisquam esse!
+                        <p>
+                            La constitution ayant fini d'être rédigé, 
+                            tous les citoyens sont dans l'obligation 
+                            de lire les règles et les devoirs auxquels 
+                            ils doivent répondre.
                         </p>
                         <div class=" my-5">
                             <a href="" class="bgbleu fs-5 text-white lien py-2 px-4">En savoir plus</a>
@@ -97,14 +95,13 @@
                     </div>
                 </div>
             </div>
-            <section class="bgbleu py-5">
+            <section class="bgbleu py-5 mb-5">
                 <div class="d-flex justify-content-center">
                     <p class="text-white col-sm-6 col-11">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Facere, voluptate, voluptates laboriosam magnam odio 
-                        distinctio sunt, vitae necessitatibus ducimus fuga magni 
-                        alias non explicabo tempora suscipit accusantium tempore 
-                        dolor temporibus.
+                        Participer à la vie de ce pays vous a, sans aucun 
+                        doute, aider à evoluer en tant que personne et 
+                        temps que citoyen. Vous pouvez temoigner, 
+                        partager votre experience.
                     </p>
                 </div>
                 <div class="d-flex justify-content-center">
