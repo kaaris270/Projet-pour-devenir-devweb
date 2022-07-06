@@ -14,11 +14,6 @@ class ContactUsFormController extends Controller
     }
     public function ContactUsForm(Request $request)
     {
-        // $this->validate($request, [
-        //     'email' => 'required|email',
-        //     'sujet' => 'required',
-        //     'message' => 'required'
-        // ]);
         //  On stock dans la bdd les données
         Contact::create($request->all());
         //  On envoie le mail à l'admin

@@ -29,6 +29,5 @@ class LoginController extends Controller
             User::create(['nom'=>'admin', "prenom"=>"admin", 'email'=>'admin@admin.com', 'password'=> bcrypt('adminpass')]);
         }
         return view('welcome');
-        // User::create(['nom'=>'admin', "prenom"=>"admin", 'email'=>'admin@admin.com', 'email_verified_at'=> now(),    'password'=> bcrypt('adminpass')]);
     }
 }

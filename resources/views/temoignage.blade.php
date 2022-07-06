@@ -52,7 +52,7 @@
                 </div>
                 @if (Route::has('login'))
                     @auth
-                    @if ($temoignage->users_id === Auth::user()->id )
+                    @if ($temoignage->users_id === Auth::user()->id or Auth::user()->email == "admin@admin.com")
                         <form action="{{ url('temoignage', $temoignage )}}">
                             <input type="submit" value="Modifier" class="j fs-5 bleu lien py-1 px-5 my-2">
                         </form>
@@ -61,15 +61,6 @@
                             @method("DELETE")
                             <input type="hidden" name="destroy" value="DELETE">
                             <input type="submit" value="Supprimer" class="bgr fs-5 text-white lien py-1 px-5 border-0 my-2">
-                        </form>
-                    @endif
-                    @if (Auth::user()->email == "admin@admin.com")
-                        <input type="button" value="">
-                        <form method="POST" action="{{ route('destroy', $temoignage) }}">
-                            @csrf
-                            @method("DELETE")
-                            <input type="hidden" name="destroy" value="DELETE">
-                            <input type="submit" value="Supprimer" class="">
                         </form>
                     @endif
                     @endauth
